@@ -19,6 +19,8 @@ crossorigin="anonymous"
   </head>
   <body>
     <div class="container">
+        <div class="weather-app-wrapper">
+
         <div class="weather-app">
         <h1 id="location">Melbourne, Australia</h1>
         <ul>
@@ -29,10 +31,14 @@ crossorigin="anonymous"
               Sunny
           </li>
       </ul>
-          <div class="current-temperature">
-              <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="cloudy"/>
-              12°C | °F          
-            </div>
+        
+        <div class="clearfix weather-temperature">
+              <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="cloudy" class="float-left" /> 
+        <spam class="float-left"><strong>12</strong>°C | °F</span>       
+        </div>
+          
+
+            
    
         <div class="row">
           <div class="col-3">
@@ -72,11 +78,12 @@ crossorigin="anonymous"
         </div>
         
 
-<small class="source-link">
-    <a href="https://github.com/emidumigan/vanilla-weatherapp">Open-source code</a> by, Emi Dumigan 
+
+</div>
+<small>
+    <a href="https://github.com/emidumigan/vanilla-weatherapp">Open-source code</a> by Emi Dumigan 
 </small>
 </div>
-
 <script src="src/app.js"></script>
   </body>
 </html>
