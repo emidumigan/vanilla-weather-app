@@ -27,6 +27,7 @@ ul {
 li {
   list-style: none;
   padding: 5px;
+  text-transform: capitalize;
 }
 .date {
   color: #c2a693;

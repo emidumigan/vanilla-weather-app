@@ -1,4 +1,3 @@
-
 function formatDate(date) {
   let hours = currentTime.getHours();
   if (hours < 10) {
@@ -34,6 +33,12 @@ function showWeather(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
+  document.querySelector("#max-temp").innerHTML = Math.round(
+    response.data.main.temp_max
+  );
+  document.querySelector("#min-temp").innerHTML = Math.round(
+    response.data.main.temp_min
+  );
 }
 function searchCity(city) {
   let apiKey = "5596812fa6646bbfaf224a9f62eed9c6";
