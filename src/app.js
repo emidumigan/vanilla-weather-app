@@ -84,7 +84,7 @@ function showWeather(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
-  getForecast(reponse.data.coord);
+  getForecast(response.data.coord);
 }
 
 function searchCity(city) {
