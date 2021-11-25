@@ -22,7 +22,7 @@ function formatDate(date) {
   return `${days[dayIndex]} ${hours}:${minutes}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
@@ -51,6 +51,12 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 
+function getForecast(coordinates) {
+  let apiKey = "5596812fa6646bbfaf224a9f62eed9c6";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function showWeather(response) {
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
@@ -63,11 +69,12 @@ function showWeather(response) {
   let iconElement = document.querySelector("#icon");
 
   celsiusTemperature = response.data.main.temp;
-  cityElement.innerHTML = response.data.name;
+
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  cityElement.innerHTML = response.data.name;
+  descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
-  descriptionElement.innerHTML = response.data.weather[0].main;
   maxTempElement.innerHTML = Math.round(response.data.main.temp_max);
   minTempElement.innerHTML = Math.round(response.data.main.temp_min);
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
@@ -76,6 +83,8 @@ function showWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(reponse.data.coord);
 }
 
 function searchCity(city) {
@@ -134,4 +143,3 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 searchCity("Melbourne");
-displayForecast();
