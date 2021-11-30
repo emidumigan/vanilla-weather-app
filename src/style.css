@@ -14,7 +14,7 @@ body {
   border-radius: 20px;
   padding: 20px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  background-color: #fbf8f0;
+  background-color: #ffffff;
   text-align: center;
   font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
@@ -23,7 +23,7 @@ body {
 }
 .form {
   background-color: #ffffff;
-  border: none;
+  border: solid 1px #e2c2b9;
   border-radius: 5px;
   box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 5px 0px;
 }
